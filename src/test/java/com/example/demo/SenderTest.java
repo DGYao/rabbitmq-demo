@@ -2,6 +2,7 @@ package com.example.demo;
 
 import com.example.demo.senders.DirectSender;
 import com.example.demo.senders.FanoutSender;
+import com.example.demo.senders.HeaderSender;
 import com.example.demo.senders.TopicSender;
 import org.junit.Test;
 import org.junit.runner.RunWith;
@@ -21,6 +22,8 @@ public class SenderTest {
     DirectSender directSender;
     @Autowired
     TopicSender topicSender;
+    @Autowired
+    HeaderSender headerSender;
     @Test
     public void FSend() throws Exception {
         fanoutSender.send();
@@ -32,6 +35,10 @@ public class SenderTest {
     @Test
     public void TSend() throws Exception {
         topicSender.send();
+    }
+    @Test
+    public void HSend(){
+        headerSender.send();
     }
 
 }

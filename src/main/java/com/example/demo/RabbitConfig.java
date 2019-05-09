@@ -37,6 +37,7 @@ public class RabbitConfig {
     public final static String QUEUE_TB = "yao.t.b";
     public final static String QUEUE_TC = "yao.t.c";
 
+    public final static String QUEUE_HA = "yao.h.a";
 
 
     public final static String ROUTING_KEY_A = "rk.a";
@@ -62,16 +63,16 @@ public class RabbitConfig {
 
     @Bean
     @Primary
-    public AmqpTemplate amqpTemplate(ConnectionFactory connectionFactory,MessageConverter messageConverter){
+    public AmqpTemplate amqpTemplate(ConnectionFactory connectionFactory,MessageConverter messageConverter) {
         RabbitTemplate rabbitTemplate = new RabbitTemplate(connectionFactory);
         rabbitTemplate.setMessageConverter(messageConverter);
         //需配置spring.rabbitmq.publisher-confirms: true,ConfirmCallback才会生效
         rabbitTemplate.setConfirmCallback(new RabbitTemplate.ConfirmCallback() {
             @Override
             public void confirm(CorrelationData correlationData, boolean b, String s) {
-                if (b){//ack成功时correlationData、s为null
+                if (b) {//ack成功时correlationData、s为null
                     logger.info("消息确认成功");
-                }else {
+                } else {
                     logger.error("消息确认失败");
                 }
             }
