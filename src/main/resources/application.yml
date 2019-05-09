@@ -6,3 +6,4 @@ spring:
     port: 5672
     username: sc
     password: 123456
+    publisher-confirms: true

@@ -18,6 +18,7 @@ public class DirectSender {
 //        String content = "hello,i am direct mode,send string";
 //        this.amqpTemplate.convertAndSend(YAO_DIRECT_EXCHANGE,"", content);
         String content2 = "hello,i am direct mode,send byte[]";
-        this.amqpTemplate.convertAndSend(YAO_DIRECT_EXCHANGE,ROUTING_KEY_A, content2.getBytes());
+//        this.amqpTemplate.convertAndSend(YAO_DIRECT_EXCHANGE,ROUTING_KEY_A, content2.getBytes());
+        this.amqpTemplate.convertAndSend(YAO_DIRECT_EXCHANGE,"a", content2.getBytes());
     }
 }

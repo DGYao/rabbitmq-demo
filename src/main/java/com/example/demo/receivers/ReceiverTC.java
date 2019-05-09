@@ -12,7 +12,7 @@ import static com.example.demo.RabbitConfig.*;
  * 消费YAO_TOPIC_EXCHANGE----QUEUE_B----rk.*
  */
 @Component
-@RabbitListener(bindings = @QueueBinding(value = @Queue(value = QUEUE_C,durable = "true"),
+@RabbitListener(bindings = @QueueBinding(value = @Queue(value = QUEUE_TC,durable = "true"),
         exchange = @Exchange(value = YAO_TOPIC_EXCHANGE,type = "topic",durable = "true"),key = ROUTING_KEY_T_ONE))
 public class ReceiverTC {
     private static final Logger logger = LoggerFactory.getLogger(ReceiverTC.class);

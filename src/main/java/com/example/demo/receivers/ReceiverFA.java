@@ -15,7 +15,7 @@ import static com.example.demo.RabbitConfig.*;
  * Created by yaodingguo on 2017/8/3.
  */
 @Component
-@RabbitListener(bindings = @QueueBinding(value = @Queue(value = QUEUE_A,durable = "true"),
+@RabbitListener(bindings = @QueueBinding(value = @Queue(value = QUEUE_FA,durable = "true"),
             exchange = @Exchange(value = YAO_FANOUT_EXCHANGE,type = "fanout",durable = "true")),containerFactory = ACK_FACTORY_BEAN_NAME)
 public class ReceiverFA {
     private static final Logger logger = LoggerFactory.getLogger(ReceiverFA.class);

@@ -5,14 +5,14 @@ import org.slf4j.LoggerFactory;
 import org.springframework.amqp.rabbit.annotation.*;
 import org.springframework.stereotype.Component;
 
-import static com.example.demo.RabbitConfig.QUEUE_C;
+import static com.example.demo.RabbitConfig.QUEUE_FC;
 import static com.example.demo.RabbitConfig.YAO_FANOUT_EXCHANGE;
 
 /**
  * Created by yaodingguo on 2017/8/3.
  */
 @Component
-@RabbitListener(bindings = @QueueBinding(value = @Queue(value = QUEUE_C,durable = "true"),
+@RabbitListener(bindings = @QueueBinding(value = @Queue(value = QUEUE_FC,durable = "true"),
         exchange = @Exchange(value = YAO_FANOUT_EXCHANGE,type = "fanout",durable = "true")))
 public class ReceiverFC {
     private static final Logger logger = LoggerFactory.getLogger(ReceiverFC.class);
